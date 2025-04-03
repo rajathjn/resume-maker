@@ -23,6 +23,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# test scripts
+old_scripts
+
 # Application logs
 *.log
 
@@ -52,3 +55,9 @@ ipython_config.py
 
 # Ruff stuff:
 .ruff_cache/
+
+# PDF files
+*.pdf
+
+# text files
+*.txt
