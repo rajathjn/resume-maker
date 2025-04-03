@@ -61,3 +61,7 @@ ipython_config.py
 
 # text files
 *.txt
+
+# Only allow example_resume.yml
+*.yml
+!example_resume.yml
