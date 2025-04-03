@@ -1,5 +1,7 @@
 # Resume Maker
 
+Still in progress
+
 ## Table of Contents
 
 - [Resume Maker](#resume-maker)
