@@ -1,0 +1,124 @@
+\documentclass[a4paper,11pt]{article}
+% Essential Packages
+\usepackage[scale=0.9]{geometry}           % Page layout
+\usepackage{lmodern}                       % Modern font
+\usepackage[dvipsnames]{xcolor}            % Colors
+\usepackage{hyperref}                      % Links
+\usepackage{enumitem}                      % List customization
+\usepackage{fontawesome5}                  % Icons
+\usepackage{titlesec}                      % Section formatting
+% Colors and Hyperref Setup
+\definecolor{linkcolour}{rgb}{0,0.2,0.8}
+\definecolor{heading}{rgb}{0,0.2,0.6}
+\hypersetup{
+    colorlinks,
+    breaklinks,
+    urlcolor=linkcolour,
+    linkcolor=linkcolour
+}
+% Section Formatting
+\titleformat{\section}
+    {\large\bfseries\raggedright\color{heading}}
+    {}{0em}{}[\titlerule]
+%
+%
+%
+%
+%
+\begin{document}
+\pagestyle{empty}
+%
+% Header
+\centerline{
+  \hfill\Huge\textbf{ {{ basic.name }} }\hfill
+}
+\smallskip
+\noindent
+%
+\begin{center}
+\begin{tabular}{{ '{c' }}{{ '|c' * (basic.details | length - 2) }}{{ '|c}' }}
+    {% for detail in basic.details %}
+\href{{ '{' }}{{ detail.value }}{{ '}' }}{\{{ detail.symbol }} \ {{ detail.name }}} {% if not loop.last %} & {% endif %}
+    {% endfor %}\\
+\end{tabular}
+\end{center}
+\vspace{-2em}
+%
+%
+% Summary
+\section{Summary}
+\hspace{0.5em} {{ summary }}
+\vspace{-1em}
+%
+%
+% Skills
+\section{Skills}
+\begin{tabular}{c | l}
+    Programming
+    &
+    {{ skills.programming | join(", ") }}
+    \\
+
+    Tools
+    &
+    {{ skills.tools | join(", ") }}
+    \\
+
+    Certifications
+    &
+    {% for cert in skills.certifications %}\href{ {{ cert.link }} }{ {{ cert.name }} }{% if not loop.last %}, {% endif %}{% endfor %}
+\end{tabular}
+\vspace{-1em}
+%
+%
+% Experience
+\section{Work Experience}
+{% for job in work_experience %}
+\textbf{ {{ job.company }} \textbar\ {{ job.position }} } \hfill {{ job.duration }}
+\begin{itemize}[nosep, leftmargin=2em, itemsep=3pt]
+{% for resp in job.responsibilities %}
+    \item {{ resp }}
+{% endfor %}
+\end{itemize}
+{% if not loop.last %}\medskip{% endif %}
+{% endfor %}
+\vspace{-1em}
+%
+%
+% Projects
+\section{Projects}
+{% for project in projects %}
+\textbf{\href{ {{ project.link }} }{ {{ project.name }} }}
+\begin{itemize}[nosep, leftmargin=2em, itemsep=3pt]
+{% for desc in project.description %}
+    \item {{ desc }}
+{% endfor %}
+\end{itemize}
+\vspace{-1em}
+{% endfor %}
+%
+%
+% Education
+\section{Education}
+\textbf{ {{ education.institution.name }} }
+\begin{itemize}[nosep, leftmargin=2em, itemsep=3pt]
+{% for degree in education.institution.degrees %}
+    \item {{ degree.name }}{% if degree.GPA is defined %} ( GPA: {{ degree.GPA }} ){% endif %} \hfill {{ degree.duration }}
+{% endfor %}
+\end{itemize}
+\vspace{-1em}
+%
+%
+% Extras
+\section{Extras}
+{% for extra in extras %}
+\textbf{{ '{' }}{{ extra.type }} \href{{ '{' }}{{ extra.link }}{{ '}' }}{{ '{' }} {{ extra.name }} {{ '}' }}{{ '}' }}
+\begin{itemize}[nosep, leftmargin=2em, itemsep=3pt]
+{% for desc in extra.description %}
+    \item {{ desc }}
+{% endfor %}
+\end{itemize}
+{% endfor %}
+%
+%
+\end{document}

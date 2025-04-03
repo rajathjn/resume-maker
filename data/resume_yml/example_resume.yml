@@ -1,0 +1,65 @@
+# Basic information about the individual
+basic:
+  name: "Your Full Name" # Replace with your full name
+  details:
+    # List of websites or contact details (maximum 5 entries)
+    - name: "Platform Name" # e.g., GitHub, LinkedIn, Portfolio
+      value: "URL or contact info" # e.g., https://github.com/username
+      symbol: "FontAwesome Icon" # e.g., faGithub, faLinkedin
+
+# Summary of your professional background
+summary: >
+  # Write a concise summary of your professional experience, skills, and achievements.
+
+# Skills section
+skills:
+  programming:
+    - "Programming Language 1" # e.g., Python
+    - "Programming Language 2" # e.g., C++
+    # Add more programming languages as needed
+  tools:
+    - "Tool 1" # e.g., Kubernetes
+    - "Tool 2" # e.g., Docker
+    # Add more tools as needed
+  certifications:
+    - name: "Certification Name"
+      link: "Certification URL"
+
+# Work experience section
+work_experience:
+  - company: "Company Name" # e.g., Google
+    position: "Job Title" # e.g., Engineer
+    duration: "Start Date - End Date" # e.g., July 2020 - present
+    exp_time: X.X # years of experience, e.g., 2.5
+    responsibilities:
+      - "Responsibility 1"
+      - "Responsibility 2"
+      # Add more responsibilities as needed
+
+# Projects section
+projects:
+  - name: "Project Name"
+    link: "Project URL"
+    description:
+      - "Project Detail 1"
+      - "Project Detail 2"
+      # Add more project details as needed
+
+# Education section
+education:
+  institution:
+    name: "Institution Name"
+    degrees:
+      - name: "Degree Name"
+        GPA: "GPA Value" # optional
+        duration: "Start Year - End Year" # e.g., 2018 - 2022
+      # Add more degrees as needed
+
+# Extras section
+extras:
+  - type: "Extra Type" # e.g., IEEE publication, Medium article
+    name: "Extra Name"
+    link: "Extra URL"
+    description:
+      - "Extra Detail 1"
+      # Add more details as needed
